@@ -1,5 +1,16 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  link(rel='stylesheet', href='/stylesheets/style.css')
+
+  header
+    h1= title
+
+  div(class="container")
+    div(class="buttons")
+      a(href="/new")
+        button(id="newbtn", class="new button")
+          span(class="button-text") New
+      a(href="/list")
+        button(id="listbtn", class="list button")
+          span(class="button-text") List
