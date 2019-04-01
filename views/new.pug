@@ -4,30 +4,25 @@ block content
     link(rel='stylesheet', href='/stylesheets/new.css')
 
     header
-        h1= title
-
+        h1 NEW ARTICLE
     div(class="container")
-        form(class="article-form", method="post", action="/server-endpoint")
+        form(id="article-form", class="article-form", method="post", enctype="multipart/form-data", action="")
             label(for="article-title") Title:
                 input(type="text", placeholder=" Write title here...", id="article-title", name="a-title", required)
             label(for="article-image") Image:
-                input(type="file", id="article-image", class="image button", required)
+                input(type="file", id="article-image", class="image button", accept="image/*", name="a-image", required)
             label(for="category", class="category-label") Category:
-                select(name="category", id="category", required)
+                select(name="a-category", id="category", required)
                     option(value="") Pick a category...
-                    option(value="sport") Sport
-                    option(value="education") Education
-                    option(value="politics") Politics
-                    option(value="economy") Economy
-                    // GET THIS FROM THE DATABASE
-                button(id="newcategory", class="button")
+                button(id="newcategory", class="button", onclick="newCategory()")
                     span(class="button-text") New Category
             label(for="article-content") Content:
-                textarea(placeholder="Lorem ipsum...", id="article-content", class="a-content", required)
+                textarea(placeholder="Lorem ipsum...", id="article-content", class="a-content", name="a-text", required)
             label(for="publishing", class="publishing") Publishing Date
-                input(id="publishing" type="date", required)
+                input(id="publishing", type="date", name="a-date", required)
             div(class="control-buttons")
                 button(type="submit", class="create button", id="create")
                     span(class="button-text") Create
                 button(type="reset", class="reset button")
                     span(class="button-text") Reset
+    script(src="../javascripts/newcategory.js")

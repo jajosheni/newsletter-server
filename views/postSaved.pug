@@ -1,0 +1,14 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/iframe.css')
+
+    header
+        h1 Post Saved!
+    div(class="container")
+        a(href="/new")
+            button(id="new", class="new button")
+                span(class="button-text") New
+        a(href="/")
+            button(id="home", class="home button")
+                span(class="button-text") Homepage

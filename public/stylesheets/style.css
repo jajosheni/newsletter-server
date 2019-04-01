@@ -42,7 +42,7 @@ h1:hover{
   height: 350px;
   background-color: #686a68;
   border: 1px solid #000000;
-  box-shadow: 5px 5px 0px #5c5c5c;
+  box-shadow: 5px 5px 0 #5c5c5c;
 }
 
 .buttons{
