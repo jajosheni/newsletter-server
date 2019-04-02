@@ -1,3 +1,5 @@
+const LOCALHOST_API = 'http://localhost:3000/api/categories';
+
 function newCategory(obj){
     event.preventDefault();
     let iframe = document.createElement('iframe');
@@ -32,7 +34,7 @@ function getCategories(){
             });
         }
     };
-    const url="http://localhost:3000/new/category";
+    const url= LOCALHOST_API + '?' + 'category=all';
     xmlhttp.open("GET", url, true);
     xmlhttp.send();
 }

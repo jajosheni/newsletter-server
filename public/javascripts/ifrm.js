@@ -15,9 +15,12 @@ document.querySelector('#newcategory-form').addEventListener('submit', function 
 });
 
 document.querySelector('#newcategory').addEventListener('click', function (evt) {
-    let categoryName = document.getElementById('category-name').value;
+    let categoryName = document.getElementById('category-name').value.trim();
+
     if(categoryName.length < 2)
         return;
+
+    categoryName = categoryName.charAt(0).toUpperCase() + categoryName.slice(1);
 
     let xmlhttp;
     xmlhttp = new XMLHttpRequest();
@@ -25,7 +28,8 @@ document.querySelector('#newcategory').addEventListener('click', function (evt) 
     xmlhttp.onreadystatechange = function () {
         if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
             console.log(xmlhttp.responseText);
-            parent.addOption(categoryName, categoryName);
+            parent.removeAllOptions();
+            parent.getCategories();
             parent.closeIFrame();
         }
     };

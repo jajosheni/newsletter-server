@@ -6,6 +6,7 @@ const logger = require('morgan');
 const multiparty = require('multiparty');
 const util = require('util');
 
+const API_ROUTER = require('./routes/api');
 const indexRouter = require('./routes/index');
 const newRouter = require('./routes/new');
 const listRouter = require('./routes/list');
@@ -31,6 +32,7 @@ app.use(express.urlencoded({limit: '50mb', extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use('/api', API_ROUTER);
 app.use('/', indexRouter);
 app.use('/new', newRouter);
 app.use('/list', listRouter);

@@ -7,20 +7,10 @@ const multiparty = require('multiparty');
 const util = require('util');
 
 const Article = require('../models/article');
-const Category = require('../models/category');
 
 /* GET newarticle page. */
 router.get('/', function(req, res, next) {
     res.render('new', { title: 'New Article' });
-});
-
-router.get('/category', function(req, res, next) {
-    Category.find({}, function(err, categories) {
-        if (err) throw err;
-
-        // object of all the categories
-        res.send(categories);
-    });
 });
 
 router.post('/', function(request, response) {
@@ -29,7 +19,7 @@ router.post('/', function(request, response) {
 
     form.parse(request, function(err, fields, files) {
         let img_path = files['a-image'][0]['path'];
-        let imageID = crypto.randomBytes(15).toString('hex') + '.png'
+        let imageID = crypto.randomBytes(15).toString('hex') + '.png';
         fs.rename(img_path, path.join(__dirname, '../public/images/' + imageID), function (err) {
             if (err) {
                 if (err)

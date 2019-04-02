@@ -1,0 +1,125 @@
+*{
+    box-sizing: border-box;
+}
+
+body {
+    min-width: 475px;
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    background-color: #686a68;
+    height: 100%;
+    max-width: 1000px;
+    font-family: "Consolas", serif;
+    font-size: 14px;
+}
+
+header{
+    position: relative;
+    text-align: center;
+    margin: 10px 10px 30px;
+    box-sizing: border-box;
+    padding: 10px;
+    border: 2px solid white;
+    box-shadow: 5px 5px 0 #5c5c5c;
+}
+
+h1{
+    display: inline-block;
+    margin: 0 auto;
+    color: #ffffff;
+    font-family: Consolas, serif;
+    font-weight: lighter;
+    font-size: 1.7em;
+}
+
+.home{
+    display: inline-block;
+    position: absolute;
+    height: 28px;
+    left: 10px;
+    vertical-align: middle;
+}
+
+#homebtn{
+    height: 100%;
+    font-weight: bold;
+    font-size: 1.3em;
+    font-family: "Consolas", serif;
+}
+
+.container{
+    position: relative;
+    padding: 10px;
+    margin: 0 20px;
+    margin-bottom: 20px;
+    height: 120px;
+    box-sizing: border-box;
+    background-color: #e3e1e1;
+    border: 1px solid #000000;
+    box-shadow: 5px 5px 0 #5c5c5c;
+}
+
+.img-container{
+    width: 98px;
+    height: 98px;
+    overflow: hidden;
+    border: solid 1px black;
+    display: inline-flex;
+    float: left;
+    clear: right;
+    margin-right: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.a-image{
+    width:100%;
+}
+
+.article-card{
+    height: 100%;
+
+}
+
+.a-content, .a-category, .a-date, .a-title{
+    display: block;
+    margin-top: 10px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.a-title{
+    font-size: 1.2em;
+    margin-top: 0;
+}
+
+.a-category, .a-date{
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.controls{
+    position: absolute;
+    right: 10px;
+}
+
+.control{
+    display: inline-block;
+    margin-right: 10px;
+    padding: 0 10px;
+    height: 1.5em;
+    background-color: #e3e1e1;
+    color: #484a48;
+    border: 1px solid white;
+    box-shadow: 5px 5px 0 #585858;
+}
+
+.control:hover{
+    background-color: #242524;
+    color: white;
+    transform: translate(-2px, -2px);
+    box-shadow: 7px 7px 1px #717171;
+    transition: 0.2s ease-in;
+}

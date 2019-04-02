@@ -11,22 +11,42 @@ body {
 }
 
 header{
+    position: relative;
     text-align: center;
-    margin-bottom: 30px;
+    margin: 10px 10px 30px;
+    box-sizing: border-box;
     padding: 10px;
+    border: 2px solid white;
+    box-shadow: 5px 5px 0 #5c5c5c;
 }
 
 h1{
+    display: inline-block;
     margin: 0 auto;
-    padding: 10px;
-    box-sizing: border-box;
     color: #ffffff;
     font-family: Consolas, serif;
     font-weight: lighter;
     font-size: 1.7em;
-    border: 2px solid white;
-    box-shadow: 5px 5px 0 #5c5c5c;
 }
+
+.home{
+    display: inline-block;
+    position: absolute;
+    height: 28px;
+    left: 10px;
+    vertical-align: middle;
+}
+
+#homebtn{
+    height: 100%;
+    width: 100%;
+    font-weight: bold;
+    font-size: 1.3em;
+    font-family: "Consolas", serif;
+    margin: 0;
+    border: solid 1px white;
+}
+
 
 .container{
     padding: 20px;
@@ -59,7 +79,7 @@ label{
 .a-content{
     display: block;
     width: 98%;
-    height: 400px;
+    height: 300px;
     margin: 10px 0;
 }
 
@@ -99,6 +119,7 @@ label{
     font-size: 1.5em;
     border: 2px solid white;
     box-shadow: 5px 5px 0 #585858;
+    padding: 0 10px;
 }
 
 .button:hover{
