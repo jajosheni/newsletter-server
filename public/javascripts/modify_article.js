@@ -1,14 +1,22 @@
 const LOCALHOST_API = 'http://localhost:3000/categories';
 
-function newCategory(obj){
+function delCategory(){
+    event.stopPropagation();
     event.preventDefault();
-    let iframe = document.createElement('iframe');
-    iframe.setAttribute('src', `${LOCALHOST_API}?category=addnewcategory`);
-    $('body').append(iframe);
-}
-
-function closeIFrame(){
-    $('iframe').remove();
+    let select = $('#category').children("option:selected");
+    let url_query =`?category=${select.val()}`;
+    $.ajax({
+        url: LOCALHOST_API + url_query,
+        type: 'DELETE',
+        success: function (data, textStatus, xhr) {
+            if(data){
+                select.remove();
+            }
+        },
+        error: function (xhr, textStatus, errorThrown) {
+            console.log('Error in Operation');
+        }
+    });
 }
 
 function addOption(text, value){
@@ -42,7 +50,6 @@ function addResults(categories){
 
 $(()=>{
     removeAllOptions();
-    document.querySelector("#publishing").valueAsDate = new Date();
     getCategories();
 });
 

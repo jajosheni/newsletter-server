@@ -1,0 +1,33 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/new.css')
+
+    header
+        div(class="home")
+            a(href="http://localhost:3000/articles?articleID=listarticles")
+                button(id="homebtn" , class="button") <
+        h1 MODIFY ARTICLE
+    div(class="container")
+        - var url = `http://localhost:3000/articles/put?articleID=${id}`
+        form(id="article-form", class="article-form", method="post", enctype="multipart/form-data",
+        action=url)
+            label(for="article-title") Title:
+                input(type="text", value= title, id="article-title", name="a-title", required)
+            label(for="article-image") Image:
+                input(type="file", id="article-image", class="image button", accept="image/*", name="a-image")
+            label(for="category", class="category-label") Category:
+                select(name="a-category", id="category", required)
+                    option(value= category) #{category}
+                button(id="delcategory", class="button", onclick="delCategory()")
+                    span(class="button-text") Delete Category
+            label(for="article-content") Content:
+                textarea(id="article-content", class="a-content", name="a-text", required)
+                    | #{content}
+            label(for="publishing", class="publishing") Publishing Date
+                input(id="publishing", type="date", name="a-date", value= date, required)
+            div(class="control-buttons")
+                button(type="submit", class="update button", id="update")
+                    span(class="button-text") Update
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(src="../javascripts/modify_article.js")

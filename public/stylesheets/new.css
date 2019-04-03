@@ -98,6 +98,13 @@ label{
     margin: 0 auto;
 }
 
+#delcategory{
+    height: 30px;
+    width: 150px;
+    font-size: 1em;
+    margin: 0 auto;
+}
+
 .publishing{
     display: block;
     vertical-align: middle;

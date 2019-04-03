@@ -14,6 +14,7 @@ router.get('/', async function(req, res, next) {
     let articleID = req.query.articleID;
     let page = req.query.page;
     let category = req.query.category;
+    let modify = req.query.modify;
 
     //RETURN ALL ARTICLES BY PAGE
     if(articleID==='all'){
@@ -26,12 +27,28 @@ router.get('/', async function(req, res, next) {
     }
 
     //RENDER NEW ARTICLE PAGE
-    else if(articleID==='newarticle'){
+    else if(articleID === 'newarticle'){
         res.render('new', { title: 'New Article' });
     }
 
+    //MODIFY ARTICLE PAGE
+    else if(modify === 'true'){
+        let article = await Article.findOne({_id: articleID}, function (err, artc){
+            if(err) throw err;
+            return artc;
+        });
+
+        res.render('modify', {
+            id: article._id,
+            title: article.title,
+            category: article.category,
+            content: article.content,
+            date: article.date.toISOString().substring(0,10)
+        });
+    }
+
     //RENDER LIST ARTICLES PAGE
-    else if(articleID==='listarticles'){
+    else if(articleID === 'listarticles'){
         let total = await Article.countDocuments(function (err, no){
             if(err) throw err;
             return no;
@@ -63,10 +80,10 @@ router.get('/', async function(req, res, next) {
 });
 
 /* POST */
-router.post('/', function(request, response) {
+router.post('/', function(req, res) {
     let form = new multiparty.Form();
 
-    form.parse(request, function(err, fields, files) {
+    form.parse(req, function(err, fields, files) {
         let img_path = files['a-image'][0]['path'];
         let imageID = crypto.randomBytes(15).toString('hex') + '.png';
         fs.rename(img_path, path.join(__dirname, '../public/images/' + imageID), function (err) {
@@ -95,24 +112,84 @@ router.post('/', function(request, response) {
             if (err) throw err;
 
             console.log('Entry created!');
-            response.render('postSaved', { title: 'POST SAVED' });
+            res.render('postSaved', { title: 'POST SAVED' });
         });
     });
-
 });
 
 /* PUT */
-router.put('/', function(req, res, next) {
-    //change article by ID
-    res.send('put request');
+router.post('/put', async function(req, res, next) {
+    let articleID = req.query.articleID;
+
+    let imgname = await Article.findOne({_id: articleID}, function (err, artc){
+        if(err) throw err;
+        return artc;
+    });
+    imgname = imgname.image_url;
+
+    const img_name = path.join(__dirname, '../public/images/' + imgname);
+
+    let form = new multiparty.Form();
+
+    form.parse(req, function(err, fields, files) {
+        let img_path = files['a-image'][0]['path'];
+        if(!img_path.includes('.'))
+            img_path='';
+        else{
+            //replace corresponding image
+            fs.unlink(img_name, (err) => {
+                if (err) {
+                    console.error(err);
+                }
+            });
+            fs.rename(img_path, img_name, function (err) {
+                if (err) {
+                    if (err)
+                        console.log(err);
+                }
+            });
+        }
+
+        let newEntry = fields;
+
+        // modify article
+
+        // update the article
+        Article.findOneAndUpdate({_id: articleID},
+            {   title: newEntry['a-title'][0].trim(),
+                image_url: imgname,
+                category: newEntry['a-category'][0],
+                content: newEntry['a-text'][0],
+                date: newEntry['a-date'][0]
+            }, function(err) {
+            if (err) throw err;
+
+            console.log('Entry Updated!');
+            res.render('postSaved', { title: 'POST SAVED' });
+        });
+    });
 });
 
 /* DELETE */
 router.delete('/', async function(req, res, next) {
     //delete article by ID
     let articleID = req.query.articleID;
+    let imgname = await Article.findOne({_id: articleID}, function (err, artc){
+        if(err) throw err;
+        return artc;
+    });
+    imgname = imgname.image_url;
+
     Article.deleteOne({_id: articleID}, function (err, artc){
         if(err) res.send('0');
+        const imgpath = path.join(__dirname, '../public/images/' + imgname);
+
+        fs.unlink(imgpath, (err) => {
+            if (err) {
+                console.error(err);
+            }
+            //delete corresponding image
+        });
         res.send('1');
     });
 });

@@ -16,7 +16,7 @@ function renderResult(result) {
                 <div class="a-date">${result['date'].toString().substring(0, 10)}</div>
             </div>
             <div class="controls" id="js-controls">
-                <button class="a-change control" id="changebtn" onclick="changeArticle('${result['_id']}')">Change</button>
+                <a href="?articleID=${result['_id']}&modify=true"><button class="a-change control">Change</button></a>
                 <button class="a-delete control" id="deletebtn" onclick="removeArticle('${result['_id']}')">Delete</button>
             </div>
         </div>
@@ -35,20 +35,6 @@ function getArticles(page) {
     };
     $('#js-items').empty();
     getDataFromApi(query, displayData);
-}
-
-function changeArticle(id){
-    /* let url_query =`?_id=${id}`;
-    $.ajax({
-        url: "http://localhost:3000/list" + url_query,
-        type: 'GET',
-        success: function (data, textStatus, xhr) {
-            console.log(data);
-        },
-        error: function (xhr, textStatus, errorThrown) {
-            console.log('Error in Operation');
-        }
-    }); */
 }
 
 function removeArticle(id){
