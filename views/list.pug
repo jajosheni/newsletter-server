@@ -2,11 +2,16 @@ extends layout
 
 block content
     link(rel='stylesheet', href='/stylesheets/list.css')
-    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
-    script(src="../javascripts/listarticles.js")
 
     header
         div(class="home")
             a(href="http://localhost:3000")
                 button(id="homebtn" , class="control") <
         h1 ARTICLES
+    div(class="page-container")
+        ul(class="pages", id= total)
+    div(id="js-items")
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(src="../javascripts/listarticles.js")
+
+

@@ -9,7 +9,10 @@ const articleSchema = new Schema({
     image_url: String,
     category: String,
     content: String,
-    date: { type: Date, default: Date.now() }
+    date: { type: Date, default: Date.now() },
+    views: Number,
+    likes: Number,
+    dislikes: Number
 });
 
 // Compile model from schema

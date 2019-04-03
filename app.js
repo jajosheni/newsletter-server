@@ -6,11 +6,9 @@ const logger = require('morgan');
 const multiparty = require('multiparty');
 const util = require('util');
 
-const API_ROUTER = require('./routes/api');
 const indexRouter = require('./routes/index');
-const newRouter = require('./routes/new');
-const listRouter = require('./routes/list');
-const iframeRouter = require('./routes/iframe');
+const articlesRouter = require('./routes/articles');
+const categoriesRouter = require('./routes/categories');
 
 const app = express();
 
@@ -32,11 +30,9 @@ app.use(express.urlencoded({limit: '50mb', extended: true}));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', API_ROUTER);
 app.use('/', indexRouter);
-app.use('/new', newRouter);
-app.use('/list', listRouter);
-app.use('/iframe', iframeRouter);
+app.use('/articles', articlesRouter);
+app.use('/categories', categoriesRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

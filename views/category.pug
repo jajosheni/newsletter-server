@@ -1,0 +1,15 @@
+extends layout
+
+block content
+    link(rel='stylesheet', href='/stylesheets/category.css')
+
+    header
+        h1 Add new category:
+    div(class="container")
+        form(id="newcategory-form", class="add-new-category", action="", method="post")
+            label(for="category-name") New Category:
+                input(type="text", placeholder=" Category name...", id="category-name", name="new-category", required)
+            button(id="newcategory", class="button")
+                span(class="button-text") Add
+    script(src="https://code.jquery.com/jquery-3.2.1.min.js")
+    script(src="../javascripts/new_category.js")
