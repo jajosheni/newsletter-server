@@ -1,9 +1,9 @@
 # Iliria Newsletter
 
 ## Server side of a digital newsletter.
-
-### Node, ExpressJS server for saving/changing/deleting articles to the mongoDB database. 
-
+<p align="center">
+<img src="https://raw.githubusercontent.com/jajosheni/jajosheni.github.io/master/assets/sitepics/newsletter.png">
+</p>
 ### Installation
 
 ```console
