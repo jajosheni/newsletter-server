@@ -4,6 +4,7 @@
 <p align="center">
 <img src="https://raw.githubusercontent.com/jajosheni/jajosheni.github.io/master/assets/sitepics/newsletter.png">
 </p>
+
 ### Installation
 
 ```console
