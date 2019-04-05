@@ -9,6 +9,8 @@ const util = require('util');
 const indexRouter = require('./routes/index');
 const articlesRouter = require('./routes/articles');
 const categoriesRouter = require('./routes/categories');
+const apiArticles = require('./routes/api/Articles');
+const apiCategories = require('./routes/api/Categories');
 
 const app = express();
 
@@ -33,6 +35,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/articles', articlesRouter);
 app.use('/categories', categoriesRouter);
+app.use('/api/articles', apiArticles);
+app.use('/api/categories', apiCategories);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

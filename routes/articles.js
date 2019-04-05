@@ -19,7 +19,7 @@ router.get('/', async function(req, res, next) {
     //RETURN ALL ARTICLES BY PAGE
     if(articleID==='all'){
         let articles = await Article.find().sort({date:-1}).skip((page-1) * itemPage).limit(itemPage, function(err, items) {
-            if (err) throw err;
+            if (err) console.log(err);
             return items;
         });
 
@@ -34,7 +34,7 @@ router.get('/', async function(req, res, next) {
     //MODIFY ARTICLE PAGE
     else if(modify === 'true'){
         let article = await Article.findOne({_id: articleID}, function (err, artc){
-            if(err) throw err;
+            if(err) console.log(err);
             return artc;
         });
 
@@ -50,7 +50,7 @@ router.get('/', async function(req, res, next) {
     //RENDER LIST ARTICLES PAGE
     else if(articleID === 'listarticles'){
         let total = await Article.countDocuments(function (err, no){
-            if(err) throw err;
+            if(err) console.log(err);
             return no;
         });
 
@@ -62,7 +62,7 @@ router.get('/', async function(req, res, next) {
     //RETURN ARTICLE BY ID
     else if(articleID){
         let article = await Article.findOne({_id: articleID}, function (err, artc){
-            if(err) throw err;
+            if(err) console.log(err);
             return artc;
         });
         res.send(article)
@@ -71,7 +71,7 @@ router.get('/', async function(req, res, next) {
     //RETURN ALL ARTICLES BY category and page
     else if(category){
         let articles = await Article.find({category: category}).sort({date:-1}).skip((page-1) * itemPage).limit(page * itemPage, function(err, items) {
-            if (err) throw err;
+            if (err) console.log(err);
             return items;
         });
 
@@ -109,7 +109,7 @@ router.post('/', function(req, res) {
 
         // save the article
         newArticle.save(function(err) {
-            if (err) throw err;
+            if (err) console.log(err);
 
             console.log('Entry created!');
             res.render('postSaved', { title: 'POST SAVED' });
@@ -122,7 +122,7 @@ router.post('/put', async function(req, res, next) {
     let articleID = req.query.articleID;
 
     let imgname = await Article.findOne({_id: articleID}, function (err, artc){
-        if(err) throw err;
+        if(err) console.log(err);
         return artc;
     });
     imgname = imgname.image_url;
@@ -162,7 +162,7 @@ router.post('/put', async function(req, res, next) {
                 content: newEntry['a-text'][0],
                 date: newEntry['a-date'][0]
             }, function(err) {
-            if (err) throw err;
+            if (err) console.log(err);
 
             console.log('Entry Updated!');
             res.render('postSaved', { title: 'POST SAVED' });
@@ -175,7 +175,7 @@ router.delete('/', async function(req, res, next) {
     //delete article by ID
     let articleID = req.query.articleID;
     let imgname = await Article.findOne({_id: articleID}, function (err, artc){
-        if(err) throw err;
+        if(err) console.log(err);
         return artc;
     });
     imgname = imgname.image_url;

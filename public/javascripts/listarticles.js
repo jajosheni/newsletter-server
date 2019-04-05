@@ -23,8 +23,18 @@ function renderResult(result) {
     </div>`;
 }
 
+function check(data){
+    if(!data.image_url) data.image_url='';
+    if(!data.title) data.title='Untitled';
+    if(!data.content) data.content='Lorem ipsum';
+    if(!data.category) data.category='';
+    if(!data.date) data.date=Date.now();
+    return data;
+}
+
 function displayData(data) {
-    const results = data.map((item, index) => renderResult(item));
+    const checkData = data.map((item, index) => check(item));
+    const results = checkData.map((item, index) => renderResult(item));
     $('#js-items').append(results);
 }
 

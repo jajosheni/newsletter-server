@@ -10,7 +10,7 @@ router.get('/', async function(req, res, next) {
     //Return all categories
     if(category==='all'){
         let ctg = await Category.find().sort({category:1}).skip(0, function(err, categories) {
-            if (err) throw err;
+            if (err) console.log(err);
             // object of all the categories
             return categories;
         });
@@ -25,7 +25,7 @@ router.get('/', async function(req, res, next) {
     //Return category by name
     else if(category){
         let ctg = await Category.findOne({category: category}, function(err, obj) {
-            if (err) throw err;
+            if (err) console.log(err);
             // return category
             return obj;
         });
@@ -48,12 +48,12 @@ router.post('/', function(req, res) {
     });
 
     Category.find({category: newEntry}, function (err, ctg) {
-        if (err) throw err;
+        if (err) console.log(err);
 
         if(!ctg.length){
             // save the category
             newCategory.save(function(err) {
-                if (err) throw err;
+                if (err) console.log(err);
 
                 console.log('Category created!');
             });
