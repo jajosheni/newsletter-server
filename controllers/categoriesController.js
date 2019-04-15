@@ -28,7 +28,7 @@ module.exports = {
         let articles = await Article.find({category: category})
             .sort({date:-1})
             .skip((page-1) * itemPage)
-            .limit(page * itemPage, function(err, items) {
+            .limit(itemPage, function(err, items) {
                 if (err) console.log(err);
                 return items;
             });
