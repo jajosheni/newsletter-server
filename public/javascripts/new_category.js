@@ -1,4 +1,4 @@
-const LOCALHOST_API = 'http://localhost:3000/categories';
+const LOCALHOST = 'http://localhost:3000/categories';
 
 document.querySelector('header').addEventListener('click', function(evt){
     event.stopPropagation();
@@ -26,7 +26,7 @@ document.querySelector('#newcategory').addEventListener('click', function (evt) 
 
     let url_query =`?category=${categoryName}`;
     $.ajax({
-        url: LOCALHOST_API + url_query,
+        url: LOCALHOST + url_query,
         type: 'POST',
         success: function (data, textStatus, xhr) {
             if(data){

@@ -1,8 +1,7 @@
-const LOCALHOST_API = 'http://localhost:3000/articles';
+const LOCALHOST = 'http://localhost:3000/articles';
 
-function getDataFromApi(query, callback) {
-
-    $.getJSON(LOCALHOST_API, query, callback);
+function getData(query, callback) {
+    $.getJSON(LOCALHOST, query, callback);
 }
 
 function renderResult(result) {
@@ -44,14 +43,14 @@ function getArticles(page) {
         page: page
     };
     $('#js-items').empty();
-    getDataFromApi(query, displayData);
+    getData(query, displayData);
 }
 
 function removeArticle(id){
     if(confirm("Do you want to delete this article?")) {
         let url_query =`?articleID=${id}`;
         $.ajax({
-            url: LOCALHOST_API + url_query,
+            url: LOCALHOST + url_query,
             type: 'DELETE',
             success: function (data, textStatus, xhr) {
                 if(data) $(`.${id}`).remove();

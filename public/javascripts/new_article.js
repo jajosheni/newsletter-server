@@ -1,9 +1,9 @@
-const LOCALHOST_API = 'http://localhost:3000/categories';
+const LOCALHOST = 'http://localhost:3000/categories';
 
 function newCategory(obj){
     event.preventDefault();
     let iframe = document.createElement('iframe');
-    iframe.setAttribute('src', `${LOCALHOST_API}?category=addnewcategory`);
+    iframe.setAttribute('src', `${LOCALHOST}?category=addnewcategory`);
     $('body').append(iframe);
 }
 
@@ -23,15 +23,15 @@ function removeAllOptions(){
 
 function getCategories() {
     const query = "all";
-    getDataFromApi(query, addResults);
+    getData(query, addResults);
 }
 
-function getDataFromApi(aquery, callback) {
+function getData(aquery, callback) {
     const query = {
         category: aquery,
     };
 
-    $.getJSON(LOCALHOST_API, query, callback);
+    $.getJSON(LOCALHOST, query, callback);
 }
 
 function addResults(categories){

@@ -1,7 +1,7 @@
 const Category = require('../models/category');
 const Article = require('../models/article');
 
-const itemPage = 5; //ITEMS PER PAGE
+const itemPage = 8; //ITEMS PER PAGE
 
 function prettyFormat(str){
     let newEntry = str.trim().toLowerCase();
@@ -12,33 +12,15 @@ function prettyFormat(str){
 module.exports = {
     //return all categories
     list_categories : async function(req, res, next) {
+        res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+        res.header("Pragma", "no-cache");
+        res.header("Expires", 0);
         let categories = await Category.find().sort({category:1}).skip(0, function(err, ctg) {
             if (err) console.log(err);
             // object of all the categories
             return ctg;
         });
         res.send(categories);
-    },
-
-    //return a page of articles by category
-    read_category :  async function(req, res, next) {
-        let page = req.query.page || 1;
-        let category = req.params.category;
-
-        let articles = await Article.find({category: category})
-            .sort({date:-1})
-            .skip((page-1) * itemPage)
-            .limit(itemPage, function(err, items) {
-                if (err) console.log(err);
-                return items;
-            });
-
-        res.send(articles);
-    },
-
-    //render new category window
-    new_category : async function(req, res, next) {
-        res.render('category');
     },
 
     //create new category
@@ -66,6 +48,30 @@ module.exports = {
             }
 
         });
+    },
+
+    //render new category window
+    new_category : async function(req, res, next) {
+        res.render('category');
+    },
+
+    //return a page of articles by category
+    read_category :  async function(req, res, next) {
+        res.header("Cache-Control", "no-cache, no-store, must-revalidate");
+        res.header("Pragma", "no-cache");
+        res.header("Expires", 0);
+        let page = req.query.page || 1;
+        let category = req.params.category;
+
+        let articles = await Article.find({category: category})
+            .sort({date:-1})
+            .skip((page-1) * itemPage)
+            .limit(itemPage, function(err, items) {
+                if (err) console.log(err);
+                return items;
+            });
+
+        res.send(articles);
     },
 
     //

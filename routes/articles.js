@@ -102,9 +102,9 @@ router.post('/', function(req, res) {
             category: newEntry['a-category'][0],
             content: newEntry['a-text'][0],
             date: newEntry['a-date'][0],
-            views: 0,
-            likes: 0,
-            dislikes: 0
+            views: [],
+            likes: [],
+            dislikes: []
         });
 
         // save the article

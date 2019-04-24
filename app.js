@@ -11,6 +11,7 @@ const articlesRouter = require('./routes/articles');
 const categoriesRouter = require('./routes/categories');
 const apiArticles = require('./routes/api/Articles');
 const apiCategories = require('./routes/api/Categories');
+const apiUsers = require('./routes/api/Users');
 
 const app = express();
 
@@ -37,6 +38,9 @@ app.use('/articles', articlesRouter);
 app.use('/categories', categoriesRouter);
 app.use('/api/articles', apiArticles);
 app.use('/api/categories', apiCategories);
+app.use('/api/users', apiUsers);
+
+app.disable('etag');
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

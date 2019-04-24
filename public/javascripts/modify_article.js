@@ -1,4 +1,4 @@
-const LOCALHOST_API = 'http://localhost:3000/categories';
+const LOCALHOST = 'http://localhost:3000/categories';
 
 function delCategory(){
     event.stopPropagation();
@@ -6,7 +6,7 @@ function delCategory(){
     let select = $('#category').children("option:selected");
     let url_query =`?category=${select.val()}`;
     $.ajax({
-        url: LOCALHOST_API + url_query,
+        url: LOCALHOST + url_query,
         type: 'DELETE',
         success: function (data, textStatus, xhr) {
             if(data){
@@ -31,15 +31,15 @@ function removeAllOptions(){
 
 function getCategories() {
     const query = "all";
-    getDataFromApi(query, addResults);
+    getData(query, addResults);
 }
 
-function getDataFromApi(aquery, callback) {
+function getData(aquery, callback) {
     const query = {
         category: aquery,
     };
 
-    $.getJSON(LOCALHOST_API, query, callback);
+    $.getJSON(LOCALHOST, query, callback);
 }
 
 function addResults(categories){
