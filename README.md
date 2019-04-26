@@ -1,6 +1,12 @@
 # Iliria Newsletter
 
-<h2 align="center">Server side of a digital newsletter</h2>
+<a href="https://github.com/jajosheni/iliria-mobile"><img src="https://img.shields.io/badge/server-part-ff00ff.svg"/></a>
+<img src="https://img.shields.io/badge/node-JS-68a063.svg"/>
+<img src="https://img.shields.io/badge/express-JS-FB7774.svg"/>
+<img src="https://img.shields.io/badge/mongo-DB-589636.svg"/>
+<img src="https://img.shields.io/badge/jade-PUG-brown.svg"/>
+
+<h4 align="center">Server side of a digital newsletter</h4>
 <p align="center">
 <img src="https://raw.githubusercontent.com/jajosheni/jajosheni.github.io/master/assets/sitepics/newsletter.png">
 </p>
