@@ -9,6 +9,8 @@ const crypto = require('crypto');
 const multiparty = require('multiparty');
 const util = require('util');
 
+const PN = require('./api/pushNotif');
+
 /* GET */
 router.get('/', async function(req, res, next) {
     let articleID = req.query.articleID;
@@ -108,10 +110,11 @@ router.post('/', function(req, res) {
         });
 
         // save the article
-        newArticle.save(function(err) {
+        newArticle.save(function(err, artc) {
             if (err) console.log(err);
 
             console.log('Entry created!');
+            PN.sendPushNotification(artc.id, newArticle.title, newArticle.content);
             res.render('postSaved', { title: 'POST SAVED' });
         });
     });
