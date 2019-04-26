@@ -5,9 +5,7 @@
 <img src="https://img.shields.io/badge/express-JS-gray.svg"/>
 <img src="https://img.shields.io/badge/mongo-DB-589636.svg"/>
 <img src="https://img.shields.io/badge/jade-PUG-brown.svg"/>
-
-<h4 align="center">Server side of a digital newsletter</h4>
-<p align="center">
+<p align="left">
 <img src="https://raw.githubusercontent.com/jajosheni/jajosheni.github.io/master/assets/sitepics/newsletter.png">
 </p>
 
