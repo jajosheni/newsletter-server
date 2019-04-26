@@ -1,8 +1,8 @@
 # Iliria Newsletter
 
-<a href="https://github.com/jajosheni/iliria-mobile"><img src="https://img.shields.io/badge/server-part-ff00ff.svg"/></a>
+<a href="https://github.com/jajosheni/iliria-mobile"><img src="https://img.shields.io/badge/mobile-app-ff00ff.svg"/></a>
 <img src="https://img.shields.io/badge/node-JS-68a063.svg"/>
-<img src="https://img.shields.io/badge/express-JS-FB7774.svg"/>
+<img src="https://img.shields.io/badge/express-JS-gray.svg"/>
 <img src="https://img.shields.io/badge/mongo-DB-589636.svg"/>
 <img src="https://img.shields.io/badge/jade-PUG-brown.svg"/>
 
