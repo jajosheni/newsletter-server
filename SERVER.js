@@ -1,13 +1,14 @@
 /*
  * IF CHANGED: CHANGE ALSO IN
- * 1. '/bin/www.js'
- * 2. '/public/javascripts/new_category.js'
- * 3. '/public/javascripts/new_article.js'
- * 4. '/public/javascripts/modify_article.js'
- * 5. '/public/javascripts/listarticles.js'
- * 6. '/views/new.pug'
- * 7. '/views/modify.pug'
+ * 1. '/public/javascripts/new_category.js'
+ * 2. '/public/javascripts/new_article.js'
+ * 3. '/public/javascripts/modify_article.js'
+ * 4. '/public/javascripts/listarticles.js'
+ * 5. '/views/new.pug'
+ * 6. '/views/modify.pug'
  */
 
-const SERVER = 'http://localhost:3000';
+const PORT = 3000;
+const SERVER = `http://localhost:${PORT}`;
 module.exports = SERVER;
+module.exports = PORT;
