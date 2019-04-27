@@ -98,6 +98,9 @@ module.exports = {
             return artc;
         });
 
+        if(!article)
+            return;
+
         let imgname = article.image_url;
 
         const img_name = path.join(__dirname, '../public/images/' + imgname);

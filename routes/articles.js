@@ -124,11 +124,15 @@ router.post('/', function(req, res) {
 router.post('/put', async function(req, res, next) {
     let articleID = req.query.articleID;
 
-    let imgname = await Article.findOne({_id: articleID}, function (err, artc){
+    let article = await Article.findOne({_id: articleID}, function (err, artc){
         if(err) console.log(err);
         return artc;
     });
-    imgname = imgname.image_url;
+
+    if(!article)
+        return;
+
+    let imgname = article.image_url;
 
     const img_name = path.join(__dirname, '../public/images/' + imgname);
 

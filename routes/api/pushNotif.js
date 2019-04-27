@@ -4,7 +4,7 @@ module.exports = {
     sendPushNotification : (id, title) => {
         // This registration token comes from the client FCM SDKs.
         let topic = `/topics/news`;
-        let serverKey = 'AIzaSyCwRNwAA8vexQ0CPC6ujevQN7i7HvcdL_E';
+        let serverKey = 'AAAASwE3Gu8:APA91bFzNJft0-4FGa3S2la36AWDsRjk3CCGJqwb9t1P6undO8uklyFGG_h88H9MG3YULV0atUv4idBMGGHCv0zMDm3crVgWnouebNSzCrXV-XaOFsgzzygZBcQNaksil125prdWxEjw';
 
         let message = {
                 to : topic,
