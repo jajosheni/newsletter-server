@@ -41,3 +41,10 @@ ARTICLES:
   DEL   /articles/:id       | Delete article by id
   GET   /articles/:id/edit  | Render Edit article page
 ```
+
+
+```
+USERS:
+  GET   /users           | List all users
+  POST  /users           | Create a user
+```
