@@ -50,5 +50,5 @@ USERS:
 ```
 
 #### NOTE:
-  1. Replace Google API key with your own at 'pushNotif.js' (I might delete my google firebase project sometime in the future).
+  1. Replace Google API key with your own at `/routes/api/pushNotif.js` (I might delete my google firebase project sometime in the future).
   
