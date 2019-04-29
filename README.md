@@ -48,3 +48,7 @@ USERS:
   GET   /users           | List all users
   POST  /users           | Create a user
 ```
+
+#### NOTE:
+  1. Replace Google API key with your own at 'pushNotif.js' (I might delete my google firebase project sometime in the future).
+  
