@@ -5,11 +5,11 @@ block content
 
     header
         div(class="home")
-            a(href="http://localhost:3000/articles?articleID=listarticles")
+            a(href="/articles?articleID=listarticles")
                 button(id="homebtn" , class="button") <
         h1 MODIFY ARTICLE
     div(class="container")
-        - var url = `http://localhost:3000/articles/put?articleID=${id}`
+        - var url = `/articles/put?articleID=${id}`
         form(id="article-form", class="article-form", method="post", enctype="multipart/form-data",
         action=url)
             label(for="article-title") Title:

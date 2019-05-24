@@ -9,7 +9,7 @@ block content
                 button(id="homebtn" , class="button") <
         h1 NEW ARTICLE
     div(class="container")
-        form(id="article-form", class="article-form", method="post", enctype="multipart/form-data", action="http://localhost:3000/articles")
+        form(id="article-form", class="article-form", method="post", enctype="multipart/form-data", action="/articles")
             label(for="article-title") Title:
                 input(type="text", placeholder=" Write title here...", id="article-title", name="a-title", required)
             label(for="article-image") Image:

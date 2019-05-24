@@ -1,4 +1,4 @@
-const LOCALHOST = 'http://localhost:3000/articles';
+const LOCALHOST = '../../articles';
 
 function getData(query, callback) {
     $.getJSON(LOCALHOST, query, callback);

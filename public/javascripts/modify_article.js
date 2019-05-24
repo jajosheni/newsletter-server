@@ -1,4 +1,4 @@
-const LOCALHOST = 'http://localhost:3000/categories';
+const LOCALHOST = '../../categories';
 
 function delCategory(){
     event.stopPropagation();

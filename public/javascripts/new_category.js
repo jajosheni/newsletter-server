@@ -1,4 +1,4 @@
-const LOCALHOST = 'http://localhost:3000/categories';
+const LOCALHOST = '../../categories';
 
 document.querySelector('header').addEventListener('click', function(evt){
     event.stopPropagation();

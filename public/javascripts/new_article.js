@@ -1,4 +1,4 @@
-const LOCALHOST = 'http://localhost:3000/categories';
+const LOCALHOST = '../../categories';
 
 function newCategory(obj){
     event.preventDefault();

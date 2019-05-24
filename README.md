@@ -20,7 +20,7 @@ $ npm start
 ```
 
 ### Implemented API
-``` URL = http://localhost:3000/api ```
+``` URL = /api ```
 
 ```
 CATEGORIES:
